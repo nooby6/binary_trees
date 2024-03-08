@@ -1,16 +1,16 @@
-#include <stdlib.h>
 #include "binary_trees.h"
 
 /**
- * binary_tree_delete - Deletes a binary tree.
- * @tree: A pointer to the root node of the tree to delete.
+ * binary_tree_is_root - Checks if a node is a root of a binary tree.
+ * @node: A pointer to the node to check.
+ *
+ * Return: If the node is a root - 1.
+ *         Otherwise - 0.
  */
-void binary_tree_delete(binary_tree_t *tree)
+int binary_tree_is_root(const binary_tree_t *node)
 {
-	if (tree != NULL)
-	{
-		binary_tree_delete(tree->left);
-		binary_tree_delete(tree->right);
-		free(tree);
-	}
+	if (node == NULL || node->parent != NULL)
+		return (0);
+
+	return (1);
 }
